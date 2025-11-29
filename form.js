@@ -1,5 +1,5 @@
 /* -------------------------------------------------- SELECTORS ------------------------------------------------------------ */
-const form = document.querySelector(".form");
+const form = document.querySelector(".sign-up-form");
 const email = document.getElementById("email");
 const country = document.getElementById("country");
 const postal = document.getElementById("postal");
@@ -33,7 +33,21 @@ confirmPassword.addEventListener("input", () => {
 });
 
 /* -------------------------------------------------- FORM SUBMISSION ------------------------------------------------------------ */
+form.addEventListener("submit", (e) => {
+  checkEmail();
+  checkPostal();
+  checkPassword();
+  matchPassword();
 
+  if (!form.checkValidity()) {
+    e.preventDefault();
+    alert("Please fix the errors before submitting.");
+    return;
+  }
+
+  e.preventDefault();
+  alert("Form successfully submitted!");
+});
 /* -------------------------------------------------- INPUT VALIDITY CHECK ------------------------------------------------------------ */
 function checkEmail() {
   email.setCustomValidity("");
