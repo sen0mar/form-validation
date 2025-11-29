@@ -16,24 +16,40 @@ email.addEventListener("input", () => {
   checkEmail();
 });
 
-country.addEventListener("input", () => {
-  checkCountry();
-});
+// country.addEventListener("input", () => {
+//   checkCountry();
+// });
 
-postal.addEventListener("input", () => {
-  checkCountry();
-  checkPostal();
-});
+// postal.addEventListener("input", () => {
+//   checkCountry();
+//   checkPostal();
+// });
 
-password.addEventListener("input", () => {
-  checkPassword();
-});
+// password.addEventListener("input", () => {
+//   checkPassword();
+// });
 
-confirmPassword.addEventListener("input", () => {
-  checkPassword();
-  confirmPassword();
-});
+// confirmPassword.addEventListener("input", () => {
+//   checkPassword();
+//   confirmPassword();
+// });
 
 /* -------------------------------------------------- FORM SUBMISSION ------------------------------------------------------------ */
 
 /* -------------------------------------------------- INPUT VALIDITY CHECK ------------------------------------------------------------ */
+function checkEmail() {
+  email.setCustomValidity("");
+  emailError.textContent = "";
+
+  const domain = "@example.com";
+  if (!email.value.endsWith(domain)) {
+    const errorMsg = "Please enter a valid Email Address";
+    email.setCustomValidity(errorMsg);
+    emailError.textContent = errorMsg;
+    emailError.style.color = "red";
+  } else {
+    email.setCustomValidity("");
+    emailError.textContent = "✔";
+    emailError.style.color = "green";
+  }
+}
