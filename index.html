@@ -8,16 +8,22 @@
     <script src="form.js" defer></script>
   </head>
   <body>
-    <form>
+    <form class="sign-up-form">
       <!-- EMAIL INPUT -->
       <div class="user-email">
         <label for="email">* Email</label>
-        <input type="email" id="email" name="email" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="john@example.com"
+          required
+        />
         <span class="email-error"></span>
       </div>
       <!-- COUNTRY INPUT -->
       <div class="user-country">
-        <label for="country">* country</label>
+        <label for="country">* Country</label>
         <select name="country" id="country" required>
           <option value="" disabled selected>Select a country</option>
           <option value="fr">France</option>
@@ -35,13 +41,26 @@
       </div>
       <!-- PASSWORD INPUT -->
       <div class="user-password">
-        <label for="password">* Email</label>
-        <input type="password" id="password" name="password" required />
+        <label for="password">* Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="**********"
+          required
+        />
+        <div class="password-restrictions">
+          <div>At least ONE uppercase letter</div>
+          <div>At least ONE lowercase letter</div>
+          <div>At least ONE number</div>
+          <div>At least ONE special character</div>
+          <div>Allowed special characters: ! @ # $ % ^ & * ( ) _ +</div>
+        </div>
         <span class="password-error"></span>
       </div>
       <!-- PASSWORD CONFIRMATION INPUT -->
       <div class="confirm-user-password">
-        <label for="confirm-password">* Email</label>
+        <label for="confirm-password">* Confirm Password</label>
         <input
           type="password"
           id="confirm-password"
@@ -50,7 +69,7 @@
         />
         <span class="confirm-password-error"></span>
       </div>
-      <button>Submit</button>
+      <button>Sign Up</button>
     </form>
   </body>
 </html>
