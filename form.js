@@ -24,9 +24,9 @@ postal.addEventListener("input", () => {
   checkPostal();
 });
 
-// password.addEventListener("input", () => {
-//   checkPassword();
-// });
+password.addEventListener("input", () => {
+  checkPassword();
+});
 
 // confirmPassword.addEventListener("input", () => {
 //   checkPassword();
@@ -79,5 +79,24 @@ function checkPostal() {
     postal.setCustomValidity("");
     postalError.textContent = "✔";
     postalError.style.color = "green";
+  }
+}
+
+function checkPassword() {
+  password.setCustomValidity("");
+  passwordError.textContent = "";
+
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]+$/;
+
+  if (!passwordRegex.test(password.value)) {
+    const errorMsg = "Password not valid";
+    password.setCustomValidity(errorMsg);
+    passwordError.textContent = errorMsg;
+    passwordError.style.color = "red";
+  } else {
+    password.setCustomValidity("");
+    passwordError.textContent = "✔";
+    passwordError.style.color = "green";
   }
 }
