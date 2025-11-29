@@ -28,10 +28,9 @@ password.addEventListener("input", () => {
   checkPassword();
 });
 
-// confirmPassword.addEventListener("input", () => {
-//   checkPassword();
-//   confirmPassword();
-// });
+confirmPassword.addEventListener("input", () => {
+  matchPassword();
+});
 
 /* -------------------------------------------------- FORM SUBMISSION ------------------------------------------------------------ */
 
@@ -98,5 +97,21 @@ function checkPassword() {
     password.setCustomValidity("");
     passwordError.textContent = "✔";
     passwordError.style.color = "green";
+  }
+}
+
+function matchPassword() {
+  confirmPassword.setCustomValidity("");
+  confirmPasswordError.textContent = "";
+
+  if (confirmPassword.value !== password.value) {
+    const errorMsg = "Password do not match";
+    confirmPassword.setCustomValidity(errorMsg);
+    confirmPasswordError.textContent = errorMsg;
+    confirmPasswordError.style.color = "red";
+  } else {
+    confirmPassword.setCustomValidity("");
+    confirmPasswordError.textContent = "✔";
+    confirmPasswordError.style.color = "green";
   }
 }
