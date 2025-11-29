@@ -16,14 +16,13 @@ email.addEventListener("input", () => {
   checkEmail();
 });
 
-// country.addEventListener("input", () => {
-//   checkCountry();
-// });
+country.addEventListener("change", () => {
+  checkPostal();
+});
 
-// postal.addEventListener("input", () => {
-//   checkCountry();
-//   checkPostal();
-// });
+postal.addEventListener("input", () => {
+  checkPostal();
+});
 
 // password.addEventListener("input", () => {
 //   checkPassword();
@@ -51,5 +50,34 @@ function checkEmail() {
     email.setCustomValidity("");
     emailError.textContent = "✔";
     emailError.style.color = "green";
+  }
+}
+
+function checkPostal() {
+  postal.setCustomValidity("");
+  postalError.textContent = "";
+
+  const selectedCountry = country.value;
+
+  const postalPattern = {
+    fr: /^\d{5}$/,
+    de: /^\d{5}$/,
+    it: /^\d{5}$/,
+    sp: /^(?:0[1-9]|[1-4][0-9]|5[0-2])\d{3}$/,
+  };
+
+  const pattern = postalPattern[selectedCountry];
+
+  if (!pattern) return;
+
+  if (!pattern.test(postal.value)) {
+    const errorMsg = "Postal code not valid";
+    postal.setCustomValidity(errorMsg);
+    postalError.textContent = errorMsg;
+    postalError.style.color = "red";
+  } else {
+    postal.setCustomValidity("");
+    postalError.textContent = "✔";
+    postalError.style.color = "green";
   }
 }
