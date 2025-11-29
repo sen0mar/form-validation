@@ -12,6 +12,27 @@ const postalError = document.querySelector(".postal-error");
 const passwordError = document.querySelector(".password-error");
 const confirmPasswordError = document.querySelector(".confirm-password-error");
 /* -------------------------------------------------- EVENT LISTENERS ------------------------------------------------------------ */
+email.addEventListener("input", () => {
+  checkEmail();
+});
+
+country.addEventListener("input", () => {
+  checkCountry();
+});
+
+postal.addEventListener("input", () => {
+  checkCountry();
+  checkPostal();
+});
+
+password.addEventListener("input", () => {
+  checkPassword();
+});
+
+confirmPassword.addEventListener("input", () => {
+  checkPassword();
+  confirmPassword();
+});
 
 /* -------------------------------------------------- FORM SUBMISSION ------------------------------------------------------------ */
 
