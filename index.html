@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="form.css" />
+    <script src="form.js" defer></script>
+  </head>
+  <body>
+    <form>
+      <!-- EMAIL INPUT -->
+      <div class="user-email">
+        <label for="email">* Email</label>
+        <input type="email" id="email" name="email" required />
+        <span class="email-error"></span>
+      </div>
+      <!-- COUNTRY INPUT -->
+      <div class="user-country">
+        <label for="country">* country</label>
+        <select name="country" id="country" required>
+          <option value="" disabled selected>Select a country</option>
+          <option value="fr">France</option>
+          <option value="it">Italy</option>
+          <option value="de">Germany</option>
+          <option value="sp">Spain</option>
+        </select>
+        <span class="country-error"></span>
+      </div>
+      <!-- POSTAL CODE INPUT -->
+      <div class="user-postal-code">
+        <label for="postal">* Postal Code</label>
+        <input type="text" id="postal" name="postal" required />
+        <span class="postal-error"></span>
+      </div>
+      <!-- PASSWORD INPUT -->
+      <div class="user-password">
+        <label for="password">* Email</label>
+        <input type="password" id="password" name="password" required />
+        <span class="password-error"></span>
+      </div>
+      <!-- PASSWORD CONFIRMATION INPUT -->
+      <div class="confirm-user-password">
+        <label for="confirm-password">* Email</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          required
+        />
+        <span class="confirm-password-error"></span>
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
